@@ -8,6 +8,8 @@
 use App\Models\Burguesia;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\ComentarioController;
+use App\Http\controllers\administrar;
+
 
 
 
@@ -32,3 +34,9 @@ Route::get('/horarios', function(){
 Route::get('/quienesSomos', function(){
     return view('burguesia.quienesSomos');
 });
+
+
+Route::get('/admin',[administrar::class,"index"]);
+Route::get('/admin/misionvision',[administrar::class,"misionvision"]);
+Route::get('/admin/horarios',[administrar::class,"horarios"]);
+Route::get('/admin/menu',[administrar::class,"menu"]);

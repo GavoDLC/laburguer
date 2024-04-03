@@ -1,6 +1,6 @@
 
 
-@include('burguesia.header')
+@include('administrar.header')
 
 
 {{-- justify-content-center text-center --}}
@@ -78,7 +78,7 @@
         <h3>Deja tu comentario</h3>
 
         <div style="display: flex; justify-content: center;">
-            <form action="{{url('/')}}" class="col-5" method="POST">
+            <form action="{{url('/admin')}}" class="col-5" method="POST">
                 @csrf
                 <div class="form">
                     <label for="nombre">Nombre:</label>
@@ -270,4 +270,4 @@
     </div>
 </div> --}}
 
-@include('burguesia.footer')      
+@include('administrar.footer')      
