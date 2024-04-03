@@ -7,9 +7,18 @@
 // });
 use App\Models\Burguesia;
 use Illuminate\Support\Facades\Route;
-Route::get('/',function(){
-    return view("burguesia.index");
-});
+use App\Http\controllers\ComentarioController;
+
+
+
+// Route::get('/',function(){
+//     return view("burguesia.index");
+// });
+Route::get('/', [ComentarioController::class,'index']);
+Route::post('/',[ComentarioController::class,'store']);
+// Route::post('/',function(){
+//     print_r($_POST);
+// });
 
 Route::get('/menu',function(){
     return view("burguesia.menu");

@@ -78,20 +78,21 @@
         <h3>Deja tu comentario</h3>
 
         <div style="display: flex; justify-content: center;">
-            <form action="" class="col-5">
+            <form action="{{url('/')}}" class="col-5" method="POST">
+                @csrf
                 <div class="form">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" aria-describedby="nombreHelp" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" aria-describedby="nombreHelp" required>
                 </div>
 
                 <div class="form-group">
                     <label for="comentario">Comentario:</label>
-                    <textarea class="form-control" id="comentario" rows="3" placeholder="Ingresa un comentario" required></textarea>
+                    <textarea class="form-control" id="comentario" name="comentario" rows="3" placeholder="Ingresa un comentario" required></textarea>
                 </div>
 <br>
                 <div class="form-group">
-                    <label for="calificacion">Calificación:</label>
-                    <select class="form-control" id="calificacion" required>
+                    <label for="puntuacion">Calificación:</label>
+                    <select class="form-control" id="puntuacion" name="puntuacion" required>
                         <option value="">Seleccionar...</option>
                         <option value="1">1 estrella</option>
                         <option value="2">2 estrellas</option>
@@ -199,20 +200,27 @@
             <h3>Comentarios recientes</h3>
         </div>
 
-<div class="container mt-4 col-7">
-    <div class="row">
-        <div class="col">
-            <div class="d-flex">
-                <div class="me-3">
-                    <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
-                </div>
-                <div class="border p-3">
-                    <p class="mb-0"><strong>Usuario123:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo nec libero ullamcorper lacinia. Sed ut libero nec justo ultricies tincidunt. Donec non enim a odio malesuada tristique.</p>
+
+        {{-- comentarios funcionales --}}
+        @foreach ($comentarios as $comentario)
+        <div class="container mt-4 col-7">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex">
+                        <div class="me-3">
+                            <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
+                        </div>
+                        <div class="border p-3">
+                            <p class="mb-0"><strong>{{$comentario->nombre}}:</strong>{{$comentario->comentario}}</p>
+                            <br><p>{{$comentario->puntuacion}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        @endforeach
+
+{{-- 
 <br>
     <!-- Comentario Falso -->
 <div class="container mt-4 col-7">
@@ -260,6 +268,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @include('burguesia.footer')      
