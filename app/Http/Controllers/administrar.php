@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\comentario;
+use App\Models\categorias;
+
 
 
 class administrar extends Controller
@@ -23,10 +25,28 @@ class administrar extends Controller
         return view('administrar.horarios');
     }
     public function menu(){
-        return view('administrar.menu');
+        $leerdatos['lista']=Categorias::all();
+        return view('administrar.menu',$leerdatos);
     }
     public function crearplatillo(){
-        return view('administrar.crearplatillo');
+        $leerdatos['lista']=Categorias::all();
+
+        return view('administrar.crearplatillo',$leerdatos);
+    }
+
+    public function storeindex(Request $request){
+        $datosrecibidos=request()->all();
+        Categorias::create($datosrecibidos);
+        // print_r($_POST);
+        return redirect('/admin/menu');
+    }
+    public function eliminar(){
+        return redirect('/admin/menu');
+    }
+    public function eliminarCategoria($id){
+        $categoria = Categorias::findOrFail($id);
+        $categoria->delete();
+        return redirect('/admin/menu');
     }
 
 }
