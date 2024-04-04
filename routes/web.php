@@ -40,3 +40,4 @@ Route::get('/admin',[administrar::class,"index"]);
 Route::get('/admin/misionvision',[administrar::class,"misionvision"]);
 Route::get('/admin/horarios',[administrar::class,"horarios"]);
 Route::get('/admin/menu',[administrar::class,"menu"]);
+Route::get('/admin/crearplatillo',[administrar::class,"crearplatillo"]);

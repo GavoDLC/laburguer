@@ -25,5 +25,8 @@ class administrar extends Controller
     public function menu(){
         return view('administrar.menu');
     }
+    public function crearplatillo(){
+        return view('administrar.crearplatillo');
+    }
 
 }
