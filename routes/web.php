@@ -41,7 +41,14 @@ Route::get('/admin/misionvision',[administrar::class,"misionvision"]);
 Route::get('/admin/horarios',[administrar::class,"horarios"]);
 Route::get('/admin/menu',[administrar::class,"menu"]);
 Route::post('/admin/menu',[administrar::class,"storeindex"]);
-Route::delete('/admin/menu/{id}',[administrar::class,"eliminarCategoria"])->name('categorias.eliminar');
 
+Route::delete('/admin/menu/{id}',[administrar::class,"eliminarCategoria"])->name('categorias.eliminar');
+Route::post('/admin/menu',[administrar::class,"storeplatillo"])->name('platillo.crear');
+// Route::post('/admin/menu',[administrar::class,"eliminarplatillo"])->name('platillo.eliminar');
+Route::delete('/admin/menu/eliminar/{id}',[administrar::class,"eliminarplatillo"]);
+Route::get('/admin/menu/editar/{id}',[administrar::class,"editarplatillo"]);
+Route::PATCH('/admin/menu/editar/{id}',[administrar::class,"updateplatillo"]);
 
 Route::get('/admin/crearplatillo',[administrar::class,"crearplatillo"]);
+
+
