@@ -40,7 +40,8 @@ Route::get('/admin',[administrar::class,"index"]);
 Route::get('/admin/misionvision',[administrar::class,"misionvision"]);
 Route::get('/admin/horarios',[administrar::class,"horarios"]);
 Route::get('/admin/menu',[administrar::class,"menu"]);
-Route::post('/admin/menu',[administrar::class,"storeindex"]);
+
+Route::post('/admin/menu/crearcategoria',[administrar::class,"storeindex"])->name('crearcategoria');
 
 Route::delete('/admin/menu/{id}',[administrar::class,"eliminarCategoria"])->name('categorias.eliminar');
 Route::post('/admin/menu',[administrar::class,"storeplatillo"])->name('platillo.crear');

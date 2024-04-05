@@ -10,7 +10,7 @@
         </form>
     @endforeach
 </ul>
-<form action="{{url('/admin/menu')}}" method="POST">
+<form action="{{url('/admin/menu/crearcategoria')}}" method="POST">
     @csrf
     <label for="nombre">categoria</label><br>
     <input type="text" name='nombre' id="nombre"><br>
