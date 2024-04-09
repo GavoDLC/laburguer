@@ -13,7 +13,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     <title>La burguesía</title>
-    <link rel="shortcut icon" href="img/iconoBurguesia.jpg" type="image/x-icon">
 </head>
 
 <body>
@@ -25,7 +24,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
             <img src="img/logo2-removebg-preview.png" alt="BP La Burguesía del Pueblo" width="70" height="70"
                 class="">
                 <i class="justify-content-center text-center" style="line-height: 1.1;">
-                    <span style="white-space: nowrap; font-size: 0.8em;">____ La ____</span><br>
+                    <span style="white-space: nowrap; font-size: 0.8em;">—— La ——</span><br>
                     <span style="white-space: nowrap; font-size: 1.3em;"><b>Burguesía</b></span><br>
                     <span style="white-space: nowrap; font-size: 0.8em;">del Pueblo</span>
                 </i>
@@ -48,13 +47,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                     <a class="nav-link text-white" href="{{url('/menu')}}" style="font-size: 18px;">Menú</a>
                 </li>
                 <!--modificado-->
-                <li class="nav-item">
+                <li onClick = "openModal()" class="nav-item">
                     <a id="horarios-link" class="nav-link text-white header-heading header" aria-current="page" style="font-size: 18px;" data-toggle="modal" data-target="#ventanaFlotanteHorario">Horarios</a>
                 </li>
                 <!--modificado-->
                 <li class="nav-item">
-                    <!--modificado x tu mailof: href="{{url('/#comentarios')}}"-->
-                    <!--con esto no importa en donde se encuentre se dirrecciona al index y da scroll-->
                     <a class="nav-link text-white" href="{{url('/#comentarios')}}" style="font-size: 18px;">Comentarios</a>
                 </li>
                 <!--modificado-->
@@ -68,43 +65,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
 
 <!--quite 2 brs-->
 <br><br><br><br>
+@include('burguesia.modalHorario')
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
 
-    <!--scripts de la ventana flotante Horarios-->
 <!--scripts de la ventana flotante Horarios-->
 <script>
-// Se obtiene el enlace "Horarios" por su ID
-var horarioLink = document.getElementById('horarios-link');
-
-// Obtener la ventana flotante y el botón de cierre
-var modalHorario = document.getElementById("ventanaFlotanteHorario");
-var closeBtnHorario = modalHorario.getElementsByClassName("close")[0];
-
-horarioLink.addEventListener('click', function() {
-  console.log("Clic en el enlace de horarios");
-  modalHorario.style.display = "block";
-});
-
-// Abrir la ventana flotante cuando se hace clic en "Horarios"
-horarioLink.addEventListener('click', function() {
-  modalHorario.style.display = "block";
-});
-
-// Cerrar la ventana flotante cuando se hace clic en la "x"
-closeBtnHorario.addEventListener('click', function() {
-  modalHorario.style.display = "none";
-});
-
-// Cerrar la ventana flotante cuando se hace clic fuera de ella
-window.addEventListener('click', function(event) {
-  if (event.target == modalHorario) {
-    modalHorario.style.display = "none";
-  }
-});
+    function openModal(){
+        const modal = document.getElementById("ventanaFlotanteHorario");
+        modal.style.display = "block";
+    }
 </script>
 <!--scripts de la ventana flotante Horarios-->
 </html>

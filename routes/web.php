@@ -9,7 +9,7 @@ use App\Models\Burguesia;
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\ComentarioController;
 use App\Http\controllers\administrar;
-
+use App\Http\controllers\cliente;
 
 
 
@@ -25,6 +25,11 @@ Route::post('/',[ComentarioController::class,'store']);
 Route::get('/menu',function(){
     return view("burguesia.menu");
 });
+Route::get('/menu',[cliente::class,"menucliente"]);
+
+
+
+
 Route::get('/misionvision',function(){
     return view("burguesia.misionvision");
 });

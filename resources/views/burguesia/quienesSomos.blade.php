@@ -50,12 +50,12 @@
 
 @include('burguesia.header')
 
-<br><br><br><br><br>
+<br><br><br><br>
 <div class="container-vision">
   <img class="imglaposte" src="img/imagenQuienesSomos.jpg" alt="BP La Burguesía del Pueblo" width="400px" height="600px">
   <div class="card right-card">
     <div class="word-container">
-      <h5>Visión</h5>
+      <h5>Quienes somos</h5>
       <hr>
     </div>
     <p class="p-vision">Somos un establecimiento gastronómico dedicado a ofrecer experiencias culinarias únicas, especialmente en la creación de deliciosas hamburguesas. Nos comprometemos a superar las expectativas de nuestros comensales mediante la combinación de ingredientes frescos y de alta calidad, junto con un servicio excepcional. Con una atención meticulosa a los detalles y un enfoque en la excelencia en cada etapa de nuestro proceso de preparación y servicio, aspiramos a convertirnos en el referente culinario definitivo en el sur del estado de Quintana Roo.</p>
@@ -64,32 +64,5 @@
 
 </body>
 
-<!--ventana flotante-->
-<div id="ventanaFlotante" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4 style="text-align: center;">Contactenos en:</h4>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <img class="imgVentana" src="img/burguesia.jpeg" alt="BP La Burguesía del Pueblo" width="100px" height="150px">
-                        </div>
-                        
-                        <div class="col-7">
-                            <br>
-                            <div class="contact-info">
-                                <img src="img/whatsapp.png" alt="WhatsApp" class="contact-icon"<p>983 120 8934</p>                           
-                            </div>
-                            <div class="contact-info">
-                                <img src="img/gmail.png" alt="Gmail" class="contact-icon"<p>laburguesia.bacalar@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--ventana flotante-->
-
-<br><br><br><br><br>
+<br><br><br><br><br><br>
 @include('burguesia.footer')

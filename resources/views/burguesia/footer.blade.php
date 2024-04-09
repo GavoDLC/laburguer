@@ -1,7 +1,6 @@
 <br><br><br><br>
 
 
-
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="bootstrap" viewBox="0 0 118 94">
       <title>Bootstrap</title>
@@ -19,7 +18,6 @@
   </svg>
 
 
-  
 <footer class="container-fluid text-white">
   <div class="container">
       <div class="row">
@@ -55,7 +53,7 @@
   </div>
 </footer>
 
-
+@include('burguesia.modalContactos')
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -74,11 +72,6 @@ var closeBtn = document.getElementsByClassName("close")[0];
 // Abrir la ventana flotante cuando se hace clic en "Contáctenos"
 contactLink.addEventListener('click', function() {
   modal.style.display = "block";
-});
-
-// Cerrar la ventana flotante cuando se hace clic en la "x"
-closeBtn.addEventListener('click', function() {
-  modal.style.display = "none";
 });
 
 // Cerrar la ventana flotante cuando se hace clic fuera de ella
