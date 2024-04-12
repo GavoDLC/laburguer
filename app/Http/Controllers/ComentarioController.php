@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\comentario;
 
 use Illuminate\Http\Request;
+use App\Models\eventos;
 
 class ComentarioController extends Controller
 {
@@ -15,7 +16,6 @@ class ComentarioController extends Controller
     {
         //recibir los datos de la base de datos
         $comentarios['comentarios']=Comentario::all();
-        
         return view('burguesia.index',$comentarios);
     }
 

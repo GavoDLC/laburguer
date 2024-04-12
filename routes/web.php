@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\controllers\ComentarioController;
 use App\Http\controllers\administrar;
 use App\Http\controllers\cliente;
-
+use App\Models\eventos;
 
 
 // Route::get('/',function(){
@@ -23,6 +23,7 @@ Route::post('/',[ComentarioController::class,'store']);
 // });
 
 Route::get('/menu',function(){
+
     return view("burguesia.menu");
 });
 Route::get('/menu',[cliente::class,"menucliente"]);
@@ -31,7 +32,9 @@ Route::get('/menu',[cliente::class,"menucliente"]);
 
 
 Route::get('/misionvision',function(){
-    return view("burguesia.misionvision");
+    $eventos['eventos']=Eventos::all();
+
+    return view("burguesia.misionvision",$eventos);
 });
 Route::get('/horarios', function(){
     return view('burguesia.horarios');
@@ -52,9 +55,14 @@ Route::delete('/admin/menu/{id}',[administrar::class,"eliminarCategoria"])->name
 Route::post('/admin/menu',[administrar::class,"storeplatillo"])->name('platillo.crear');
 // Route::post('/admin/menu',[administrar::class,"eliminarplatillo"])->name('platillo.eliminar');
 Route::delete('/admin/menu/eliminar/{id}',[administrar::class,"eliminarplatillo"]);
+
 Route::get('/admin/menu/editar/{id}',[administrar::class,"editarplatillo"]);
 Route::PATCH('/admin/menu/editar/{id}',[administrar::class,"updateplatillo"]);
 
 Route::get('/admin/crearplatillo',[administrar::class,"crearplatillo"]);
 
-
+Route::get('/admin/misionvision/editar/{id}', [administrar::class, 'updateEvento']);
+Route::patch('/admin/misionvision/editar/{id}', [administrar::class, 'updateEvento']);
+Route::get('/carrito', function () {
+    return view('burguesia.carrito');
+})->name('carrito');

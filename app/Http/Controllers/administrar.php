@@ -7,6 +7,7 @@ use App\Models\comentario;
 use App\Models\categorias;
 use App\Models\platillos;
 use Illuminate\Support\Facades\Storage;
+use App\Models\eventos;
 
 
 
@@ -21,14 +22,17 @@ class administrar extends Controller
         return view('administrar.index',$comentarios);
     }
     public function misionvision(){
-        return view('administrar.misionvision');
+        $eventos['eventos']=Eventos::all();
+
+        return view('administrar.misionvision',$eventos);
     }
     public function horarios(){
         return view('administrar.horarios');
     }
     public function menu(){
         $leerdatos['lista']=Categorias::all();
-        $menu['platillos']=Platillos::paginate(10);
+        $menu['platillos']=Platillos::all();
+
         return view('administrar.menu',$leerdatos,$menu);
     }
     public function crearplatillo(){
@@ -95,6 +99,32 @@ class administrar extends Controller
         $datos=Platillos::findOrFail($id);
         return view('administrar.editarplatillo',$leerdatos,compact('datos','datosplatillo'));
     }
+    public function updateevento(Request $request, $id){
+    // Obtenemos los datos del request excepto los campos de token y método
+    $datosEvento = $request->except(['_token','_method']);
 
+    // Verificamos si hay una imagen en el request y la actualizamos si es el caso
+    if ($request->hasFile('Imagen')) {
+        $evento = Eventos::findOrFail($id);
+        // Eliminamos la imagen anterior si existe
+        Storage::delete('public/'.$evento->Imagen);
+        // Guardamos la nueva imagen
+
+        $datosEvento['Imagen'] = $request->file('Imagen')->store('uploads','public');
+    }
+
+    // Actualizamos los datos del evento en la base de datos
+    Eventos::where('id','=',$id)->update($datosEvento);
+
+    // Volvemos a obtener los datos del evento actualizados
+    $eventoActualizado = Eventos::findOrFail($id);
+
+    // Obtenemos otros datos necesarios, si los hay
+    $leerdatos['lista'] = Categorias::all();
+    $eventos['eventos']=Eventos::all();
+
+    // Retornamos la vista con los datos actualizados y otros datos necesarios
+    return view("administrar.misionvision",$eventos, compact('eventoActualizado', 'leerdatos'));
+}
 
 }

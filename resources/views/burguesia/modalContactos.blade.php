@@ -40,4 +40,6 @@ hr {
             function closeModal(){     
                 modalContactos.style.display = "none";
             }
+      
+
         </script>

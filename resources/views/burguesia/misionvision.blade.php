@@ -57,7 +57,7 @@
 
   </style>
 
-
+{{-- 
   <div class="container-vision">
         <div class="card left-card">
         <div class="word-container">
@@ -67,20 +67,49 @@
         <p class="p-vision">Ser reconocidos como el destino preferido para los amantes de la comida, destacando por nuestra innovación en sabores y compromiso con la satisfacción de nuestros clientes.</p>
         </div>
         <img class="imglaposte" src="img/laPoster.jpg" alt="BP La Burguesía del Pueblo" width="300px" height="410px">
-  </div>
-
-  <!--Segundo conteiner-->
+  </div> --}}
+  @foreach($eventos as $evento)
+  @if($evento->Nombre == "vision")
   <div class="container-vision">
-        <img class="imglaposte" src="img/mision.jpg" alt="BP La Burguesía del Pueblo" width="300px" height="410px">
-        <!--puse un margin-left para separarlos a 60px-->
-        <div class="card right-card" style="margin-left: 60px;"> <!-- Cambiado de 'left-card' a 'right-card' -->
-            <div class="word-container">
-                <h5>Misión</h5>
-                <hr> <!-- HR personalizado -->
-            </div>
-            <p class="p-vision">Brindar a nuestros clientes una experiencia excepcional mediante la preparación de platillos de calidad, funcionando sabores auténticos en cada bocado creando momentos memorables para nuestros clientes.</p>
+    <div class="card left-card">
+    <div class="word-container">
+            <h5>Visión</h5>
+            <hr> <!-- HR personalizado -->
+    </div>
+    <p class="p-vision">{{$evento->Descripcion}}</p>
+    </div>
+    <img class="imglaposte" src="/storage/{{$evento->Imagen}}" alt="{{$evento->Nombre}}" width="300px" height="410px">
+</div>
+  @endif
+  @endforeach
+  <!--Segundo conteiner-->
+  @foreach($eventos as $evento)
+  @if($evento->Nombre == "mision")
+
+  <div class="container-vision">
+    <img class="imglaposte" src="/storage/{{$evento->Imagen}}" alt="BP La Burguesía del Pueblo" width="300px" height="410px">
+    <!--puse un margin-left para separarlos a 60px-->
+    <div class="card right-card" style="margin-left: 60px;"> <!-- Cambiado de 'left-card' a 'right-card' -->
+        <div class="word-container">
+            <h5>Misión</h5>
+            <hr> <!-- HR personalizado -->
         </div>
- </div>
+        <p class="p-vision">{{$evento->Descripcion}}</p>
+    </div>
+</div>
+  {{-- <div class="container-vision">
+    <div class="card left-card">
+    <div class="word-container">
+            <h5>Visión</h5>
+            <hr> <!-- HR personalizado -->
+    </div>
+    <p class="p-vision">{{$evento->Descripcion}}</p>
+    </div>
+    <img class="imglaposte" src="/storage/{{$evento->Imagen}}" alt="{{$evento->Nombre}}" width="300px" height="410px">
+</div> --}}
+  @endif
+  @endforeach
+  
 <br><br><br>
 
 <!--parte de los objetivos-->

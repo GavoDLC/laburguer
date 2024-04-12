@@ -56,12 +56,15 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                 </li>
                 <!--modificado-->
             </ul>
-            <form action="#">
-                <button type="submit" style="background:none; border:none;"><img src="img/anadir-al-carrito.png" width="40" alt="" class="bg-none"></button>
+            <form action="{{ route('carrito') }}" method="GET">
+                <button type="submit" style="background:none; border:none;">
+                    <img src="img/anadir-al-carrito.png" width="40" alt="" class="bg-none">
+                </button>
             </form>
         </div>
     </div>
 </nav>
+
 
 <!--quite 2 brs-->
 <br><br><br><br>
@@ -73,11 +76,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     crossorigin="anonymous"></script>
 
 <!--scripts de la ventana flotante Horarios-->
-<script>
-    function openModal(){
-        const modal = document.getElementById("ventanaFlotanteHorario");
-        modal.style.display = "block";
-    }
-</script>
+
 <!--scripts de la ventana flotante Horarios-->
 </html>

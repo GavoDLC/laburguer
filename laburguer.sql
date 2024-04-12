@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-04-2024 a las 07:08:56
+-- Tiempo de generación: 09-04-2024 a las 20:26:13
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -66,7 +66,8 @@ INSERT INTO `categorias` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
 (3, 'Cocteleria', '2024-04-04 09:31:53', '2024-04-04 09:31:53'),
 (4, 'Entradas', '2024-04-04 09:32:03', '2024-04-04 09:32:03'),
 (6, 'Especialidades', '2024-04-04 12:15:04', '2024-04-04 12:15:04'),
-(7, 'Postres', '2024-04-04 12:15:40', '2024-04-04 12:15:40');
+(7, 'Postres', '2024-04-04 12:15:40', '2024-04-04 12:15:40'),
+(14, 'tokyo', '2024-04-09 22:17:30', '2024-04-09 22:17:30');
 
 -- --------------------------------------------------------
 
@@ -200,9 +201,11 @@ CREATE TABLE `platillos` (
 --
 
 INSERT INTO `platillos` (`id`, `nombre`, `imagen`, `descripcion`, `precio`, `categoria`, `created_at`, `updated_at`) VALUES
-(3, 'Huevos', 'uploads/ElVDRHrJdSDbbR5DkcER2jdFQEOMxBa25yFQTQ3A.webp', 'cocidos a la plancha', '22', 'Postres', NULL, '2024-04-05 09:41:00'),
+(3, 'Huevos', 'uploads/6Q3BXktimMCDPrA4iJ5tyOIF7iThMYpjPCw0ODwr.jpg', 'cocidos a la plancha', '22', 'Postres', NULL, '2024-04-08 17:44:56'),
 (4, 'Ceviche', 'uploads/UHtDdAtwwVbHhhYUu8WOeaxnDQou0sheFjecI8hI.jpg', 'surtido de mariscos', '33', 'Cocteleria', NULL, NULL),
-(8, 'Egipto', 'uploads/wHqsRamIwEdwC6Pzhbb2b5vPvf65uoS1nj6SKrWm.jpg', 'desestres', '25', 'Especialidades', NULL, NULL);
+(9, 'coca', 'uploads/oYhsPrdQ36Z6e7DZztudIY6i3wUnozGaao2rGzMm.png', 'adfadfasdfadf', '20', 'Entradas', NULL, '2024-04-08 17:49:01'),
+(10, 'Egipciaa', 'uploads/koS00Yy6PjQUQToE64Sc1r2qRrOtplkbyOqZ792Y.webp', 'Un recorrido de 2 horas por la laguna de bacalar conociendo sus puntos mas importantes', '25', 'tokyo', NULL, NULL),
+(11, 'hh', 'uploads/VHV5DtQTGI2N5xrgBPaLI1jCINJaLvNqFuA7YkKE.webp', 'kkk', 'jjj', 'tokyo', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -224,7 +227,12 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('X4aO4tcp8J0coEZvOLhvwnsGUk43OM1WQFLBzkTV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQm41eVU3NmNGNnk3OFhyOTlrcG0wTXk4VVhpM1dTV0xTUDkwUEpIQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9tZW51Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1712293561);
+('a2QAYEhbmtMaR3PsMFPTwNPIbdOWBOYBdXD3TbGk', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiWVQwS1RPMzVFeUxoTXRQNkRWZ3dDN2ZoeFZiUWdJdURYWEJGYmg2MSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzI6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbi9tZW51Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1712582476),
+('dqRYEXDgAU4KxlPFXgV3GO8elMLiX42uqfQp10kx', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiajVQS3paQTZHajNWa3FvdEljajl6N3RzNlRzQk51VWVuNlJHd3R4TSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjY6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9tZW51Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1712686756),
+('nYuokXJNjQx9gJAcvUadsyNZHDhIciQ0cEj7jM7n', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoidU9hRmVmbDgwRnR4TTEySEFZR3F4cXdRZG9qS1BEM1ZDODVxb243dCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712580125),
+('U2xnNXLCGkAWMlAOo7CZEzdsIiIj1X6qRUVw5GVN', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiV2JNRlRseGNvVEpkSWF2ZW9JTEg0eXJYWWZsYjhWVWpGZUdqdzAweSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712580124),
+('W91Y85FXWBd4KDOXAKsH1gx9LLuCDtqRYv22gW23', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiakdCd2RvNjJMeE5yQlRoTE8zejNWYTZIZlhvSnFKNkdKdEJkSXVKVCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712609405),
+('X4aO4tcp8J0coEZvOLhvwnsGUk43OM1WQFLBzkTV', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 OPR/107.0.0.0 (Edition std-1)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiQm41eVU3NmNGNnk3OFhyOTlrcG0wTXk4VVhpM1dTV0xTUDkwUEpIQSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjc6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC9hZG1pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712297497);
 
 -- --------------------------------------------------------
 
@@ -332,7 +340,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `comentarios`
@@ -362,7 +370,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `platillos`
 --
 ALTER TABLE `platillos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
