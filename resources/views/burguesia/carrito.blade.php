@@ -14,11 +14,11 @@
 {{-- Comentario Blade: justify-content-center text-center --}}
 
 <!-- Título de la página -->
-<h1>Carrito de Compras</h1>
+<h1 class="text-center">Carrito de Compras</h1>
 
 <!-- Verifica si hay productos en el carrito -->
 
-    <div id="carrito"> </div>
+    <div id="carrito" class="text-center"> </div>
 
     <!-- Tabla para mostrar los productos del carrito -->
    
