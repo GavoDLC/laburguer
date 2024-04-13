@@ -29,8 +29,6 @@ Route::get('/menu',function(){
 Route::get('/menu',[cliente::class,"menucliente"]);
 
 
-
-
 Route::get('/misionvision',function(){
     $eventos['eventos']=Eventos::all();
 

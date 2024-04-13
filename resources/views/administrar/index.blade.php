@@ -76,14 +76,13 @@
 <!--ingresar comentarios-->
 <div class="text-center justify-content-center">
     <h2>——— Galeria de imagenes ———</h2>
-    <h3>Deja tu comentario</h3>
 
     <div style="display: flex; justify-content: center;">
         <form action="{{ url('/admin/create/galeria') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="foto">Cargar Imagen.</label><br>
             <input type="file" name="foto" id="foto"><br>
-            <input type="submit" class="btn btn-primary" value="Subir imagen">
+            <input type="submit" class="btn btn-primary" value="Subir imagen" onclick="return confirm('¿Se va a guardar la imagen?')">
         </form>
        
     </div>
