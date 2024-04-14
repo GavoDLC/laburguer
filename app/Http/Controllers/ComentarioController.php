@@ -15,7 +15,9 @@ class ComentarioController extends Controller
     public function index()
     {
         //recibir los datos de la base de datos
-        $comentarios['comentarios']=Comentario::all();
+        $comentarios['comentarios'] = Comentario::orderBy('created_at', 'desc')->get();
+
+        // $comentarios['comentarios']=Comentario::all();
         return view('burguesia.index',$comentarios);
     }
 

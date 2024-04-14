@@ -15,8 +15,5 @@ class cliente extends Controller
         $menu['platillos']=Platillos::all();
         return view('burguesia.menu',$leerdatos,$menu);
     }
-    public function cliente_inicio(){
-        return view('burguesia.index',$leerdatos,$menu);
-
-    }
+    
 }

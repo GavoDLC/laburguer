@@ -1,7 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La burguesia</title>
+    <!-- Aquí puedes agregar tus estilos CSS si los tienes -->
+</head>
+<style>
+ .comentario-container {
+        margin-bottom: 20px;
+    }
+
+    .comentario-content {
+        flex-grow: 1;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        color: #000000;
+        padding: 10px;
+    }
+
+    .comentario-content .fecha {
+        color: #888888; /* Color de la fecha más gris */
+    }
+
+    .comentario-content .estrellas {
+        color: #FFC300;/*color de las estrellitas */
+    }
+
+    .user-icon {
+    /* Fondo con degradado */
+    background: linear-gradient(50deg, #0044ff, #00ccff);
+    /* Color del muñeco de usuario blanco */
+    color: white;
+    /* Forma circular */
+    border-radius: 50%;
+    /* Para centrar verticalmente */
+    display: inline-flex;
+    align-items: center;
+    /* Para centrar horizontalmente */
+    justify-content: center;
+    /* Ancho y altura del círculo */
+    width: 50px;
+    height: 50px;
+    /* Espaciado dentro del círculo */
+    padding: 5px;
+    box-shadow: 0 0 6px #0044ff; /* Cambia el valor para ajustar el brillo */
+    }
+
+</style>
 
 
-@include('burguesia.header')
-
+<body>
+    <!-- Contenido de tu página -->
+    @include('burguesia.header')
 
 {{-- justify-content-center text-center --}}
 
@@ -72,6 +123,9 @@
 <br><br><br><br>
 
 
+
+
+<!--************************************************************************************************-->
 <!--ingresar comentarios-->
     <div class="text-center justify-content-center">
         <h2>——— Comentarios ———</h2>
@@ -84,7 +138,7 @@
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" aria-describedby="nombreHelp" required>
                 </div>
-
+<br>
                 <div class="form-group">
                     <label for="comentario">Comentario:</label>
                     <textarea class="form-control" id="comentario" name="comentario" rows="3" placeholder="Ingresa un comentario" required></textarea>
@@ -94,11 +148,11 @@
                     <label for="puntuacion">Calificación:</label>
                     <select class="form-control" id="puntuacion" name="puntuacion" required>
                         <option value="">Seleccionar...</option>
-                        <option value="1">1 estrella</option>
-                        <option value="2">2 estrellas</option>
-                        <option value="3">3 estrellas</option>
-                        <option value="4">4 estrellas</option>
-                        <option value="5">5 estrellas</option>
+                        <option value="1" style="color: #FFC300;">{!! str_repeat('&#9733;', 1) !!}</option>
+                        <option value="2" style="color: #FFC300;">{!! str_repeat('&#9733;', 2) !!}</option>
+                        <option value="3" style="color: #FFC300;">{!! str_repeat('&#9733;', 3) !!}</option>
+                        <option value="4" style="color: #FFC300;">{!! str_repeat('&#9733;', 4) !!}</option>
+                        <option value="5" style="color: #FFC300;">{!! str_repeat('&#9733;', 5) !!}</option>
                     </select>
                 </div>
 <br>
@@ -106,94 +160,13 @@
             </form>
         </div>
         <br>
-        <!--ventana flotante Contactos-->
-        <div id="ventanaFlotante" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4>Contactenos en:</h4>
-                <hr>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4">
-                            <img class="imgVentana" src="img/burguesia.jpeg" alt="BP La Burguesía del Pueblo" width="100px" height="150px">
-                        </div>
-                        
-                        <div class="col-7">
-                            <br>
-                            <div class="contact-info">
-                                <img src="img/whatsapp.png" alt="WhatsApp" class="contact-icon"><p>983 120 8934</p>                           
-                            </div>
-                            <div class="contact-info">
-                                <img src="img/gmail.png" alt="Gmail" class="contact-icon"><p>laburguesia.bacalar@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--ventana flotante contactos-->
-
-        <!--ventana flotante Horarios-->
-        <div id="ventanaFlotanteHorario" class="ventana">
-            <div id="modalHorario"class="modal">
-                <span class="close">&times;</span>
-                <h4>Horarios:</h4>
-               
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="table-responsive"> <!-- Utilizamos esta clase para hacer la tabla responsiva -->
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>Columna 1</th>
-                                            <th>Columna 2</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Fila 1, Columna 1</td>
-                                            <td>Fila 1, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 2, Columna 1</td>
-                                            <td>Fila 2, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 3, Columna 1</td>
-                                            <td>Fila 3, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 4, Columna 1</td>
-                                            <td>Fila 4, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 5, Columna 1</td>
-                                            <td>Fila 5, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 6, Columna 1</td>
-                                            <td>Fila 6, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 7, Columna 1</td>
-                                            <td>Fila 7, Columna 2</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fila 8, Columna 1</td>
-                                            <td>Fila 8, Columna 2</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--ventana flotante Horarios-->
+<!--************************************************************************************************-->
+        
 
 
+ <!--************************************************************************************************-->
+        <!--le agrege brs-->
+        <br><br>
         <!--comentarios-->
         <!--modificado-->
         <div id="comentarios">
@@ -201,73 +174,42 @@
         </div>
 
 
-        {{-- comentarios funcionales --}}
+        
         @foreach ($comentarios as $comentario)
-        <div class="container mt-4 col-7">
-            <div class="row">
-                <div class="col">
-                    <div class="d-flex">
-                        <div class="me-3">
-                            <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
-                        </div>
-                        <div class="border p-3">
-                            <p class="mb-0"><strong>{{$comentario->nombre}}:</strong>{{$comentario->comentario}}</p>
-                            <br><p>{{$comentario->puntuacion}}</p>
+            <div class="container mt-4 col-7">
+                <div class="row">
+                    <div class="col">
+                        <div class="d-flex comentario-container">
+                            <div class="me-3">
+                                <span class="user-icon">
+                                    <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
+                                </span>
+                            </div>
+                            <div class="border p-3 comentario-content">
+                                <p style="text-align: left; margin-bottom: 0px;"><strong>{{$comentario->nombre}}</strong></p>
+                                <p class="fecha" style="text-align: left; margin-bottom: 5px;">{{$comentario->created_at->format('d \d\e F \d\e\l Y, H:i')}}</p>
+                                <hr style="margin-bottom: 5px;">
+                                <p class="estrellas" style="text-align: left; margin-bottom: 4px;">{!! str_repeat('&#9733;', $comentario->puntuacion) !!}</p>
+                                <p style="text-align: left; margin-bottom: 2px;">{{$comentario->comentario}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        @endforeach
+            @endforeach
 
-{{-- 
-<br>
-    <!-- Comentario Falso -->
-<div class="container mt-4 col-7">
-    <div class="row">
-        <div class="col">
-            <div class="d-flex">
-                <div class="me-3">
-                    <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
-                </div>
-                <div class="border p-3">
-                    <p class="mb-0"><strong>Usuario123:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo nec libero ullamcorper lacinia. Sed ut libero nec justo ultricies tincidunt. Donec non enim a odio malesuada tristique.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-    <!-- Comentario Falso -->
-<div class="container mt-4 col-7">
-    <div class="row">
-        <div class="col">
-            <div class="d-flex">
-                <div class="me-3">
-                    <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
-                </div>
-                <div class="border p-3">
-                    <p class="mb-0"><strong>Usuario123:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo nec libero ullamcorper lacinia. Sed ut libero nec justo ultricies tincidunt. Donec non enim a odio malesuada tristique.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-    <!-- Comentario Falso -->
-<div class="container mt-4 col-7">
-    <div class="row">
-        <div class="col">
-            <div class="d-flex">
-                <div class="me-3">
-                    <i class="fas fa-user fa-2x"></i> <!-- Icono de persona -->
-                </div>
-                <div class="border p-3">
-                    <p class="mb-0"><strong>Usuario123:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo nec libero ullamcorper lacinia. Sed ut libero nec justo ultricies tincidunt. Donec non enim a odio malesuada tristique.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
-@include('burguesia.footer')      
+
+<!--************************************************************************************************-->
+
+
+
+ <!-- Importa tu archivo JavaScript -->
+ <script src="{{ asset('js/boostrap.js') }}"></script>
+
+<!-- Footer u otros elementos finales -->
+@include('burguesia.footer')
+
+
+</body>
+</html>    

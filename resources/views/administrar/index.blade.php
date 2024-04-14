@@ -76,15 +76,25 @@
 <!--ingresar comentarios-->
 <div class="text-center justify-content-center">
     <h2>——— Galeria de imagenes ———</h2>
-
+    <a
+        href="https://api.whatsapp.com/send?phone=+529831920749&&text=Los%20ingredientes%20son%20los%20siguientes:%0A1.-Primer%0A2.-Segundo%0A3.-Tercero">Enviar
+        a WhatsApp</a>
+    <a
+        href="whatsapp://send?phone=+529831920749&text==Los%20ingredientes%20son%20los%20siguientes:
+@foreach ($comentarios as $comentario)
+%0A{{ $comentario->nombre }} @endforeach">Enviar
+        a WhatsApp</a>
     <div style="display: flex; justify-content: center;">
         <form action="{{ url('/admin/create/galeria') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="foto">Cargar Imagen.</label><br>
             <input type="file" name="foto" id="foto"><br>
-            <input type="submit" class="btn btn-primary" value="Subir imagen" onclick="return confirm('¿Se va a guardar la imagen?')">
+            <!-- Cambio en el botón: al hacer clic, abrirá el chat de WhatsApp con el mensaje deseado -->
+            <a href="whatsapp://send?phone=+519831920749&text='
+            @foreach ($comentarios as $comentario)
+                comentario->nombre @endforeach'"
+                class="btn btn-primary" onclick="return confirm('¿Se va a guardar la imagen?')">Subir imagen</a>
         </form>
-       
     </div>
     <br>
     <!--ventana flotante Contactos-->
