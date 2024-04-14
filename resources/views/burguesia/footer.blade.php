@@ -99,5 +99,41 @@
     
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
+    <!--scripts de la ventana flotante Horarios-->
+
+    <!--scripts de la ventana flotante Horarios-->
+
+    <!-- Script para actualizar el contador del carrito -->
+    <script>
+        // Obtener el contador del carrito
+        var contadorCarrito = document.getElementById('contadorCarrito');
+
+        // Función para actualizar el contador del carrito
+        function actualizarContadorCarrito() {
+            // Obtener el carrito de la sesión
+            var carrito = JSON.parse(sessionStorage.getItem('cart'));
+
+            // Verificar si el carrito está vacío
+            if (carrito && carrito.length > 0) {
+                // Calcular el total de productos en el carrito
+                var totalProductos = carrito.reduce(function (total, producto) {
+                    return total + producto.cantidad;
+                }, 0);
+
+                // Mostrar el contador del carrito y actualizar el valor
+                contadorCarrito.style.display = 'inline-block';
+                contadorCarrito.textContent = totalProductos;
+            } else {
+                // Ocultar el contador del carrito si está vacío
+                contadorCarrito.style.display = 'none';
+            }
+        }
+
+        // Llamar a la función para actualizar el contador del carrito al cargar la página
+        actualizarContadorCarrito();
+    </script>
 </html>
