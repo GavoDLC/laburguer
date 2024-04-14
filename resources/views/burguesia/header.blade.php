@@ -43,7 +43,7 @@
                         <a class="nav-link text-white" href="{{ url('/menu') }}" style="font-size: 18px;">Menú</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#" style="font-size: 18px;" data-toggle="modal" data-target="#ventanaFlotanteHorario">Horarios</a>
+                        <a id="horarios-link" class="nav-link text-white header-heading header" aria-current="page" style="font-size: 18px;" data-toggle="modal" data-target="#ventanaFlotanteHorario">Horarios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="{{ url('/#comentarios') }}" style="font-size: 18px;">Comentarios</a>
@@ -101,29 +101,85 @@
 
     <!-- Script para la ventana flotante de Horarios -->
     <script>
-        // Se obtiene el enlace "Horarios" por su ID
-        var horarioLink = document.getElementById('horarios-link');
-    
-        // Obtener la ventana flotante y el botón de cierre
-        var modalHorario = document.getElementById("ventanaFlotanteHorario");
-        var closeBtnHorario = modalHorario.querySelector(".close");
-    
-        // Abrir la ventana flotante cuando se hace clic en "Horarios"
-        horarioLink.addEventListener('click', function() {
-            modalHorario.style.display = "block";
-        });
-    
-        // Cerrar la ventana flotante cuando se hace clic en la "x"
-        closeBtnHorario.addEventListener('click', function() {
-            modalHorario.style.display = "none";
-        });
-    
-        // Cerrar la ventana flotante cuando se hace clic fuera de ella
-        window.addEventListener('click', function(event) {
-            if (event.target == modalHorario) {
+         document.addEventListener('DOMContentLoaded', function() {
+            var horarioLink = document.getElementById('horarios-link');
+            var modalHorario = document.getElementById("ventanaFlotanteHorario");
+            var closeBtnHorario = modalHorario.querySelector(".close");
+
+            horarioLink.addEventListener('click', function(event) {
+                event.preventDefault();
+                modalHorario.style.display = "block";
+            });
+
+            closeBtnHorario.addEventListener('click', function() {
                 modalHorario.style.display = "none";
-            }
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modalHorario) {
+                    modalHorario.style.display = "none";
+                }
+            });
         });
     </script>
+                <!--ventana flotante Horarios-->
+                <div id="ventanaFlotanteHorario" class="ventana">
+                    <div id="modalHorario"class="modal-content">
+                        <span class="close">&times;</span>
+                        <h4>Horarios:</h4>
+            
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive"> <!-- Utilizamos esta clase para hacer la tabla responsiva -->
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Columna 1</th>
+                                                    <th>Columna 2</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Fila 1, Columna 1</td>
+                                                    <td>Fila 1, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 2, Columna 1</td>
+                                                    <td>Fila 2, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 3, Columna 1</td>
+                                                    <td>Fila 3, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 4, Columna 1</td>
+                                                    <td>Fila 4, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 5, Columna 1</td>
+                                                    <td>Fila 5, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 6, Columna 1</td>
+                                                    <td>Fila 6, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 7, Columna 1</td>
+                                                    <td>Fila 7, Columna 2</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fila 8, Columna 1</td>
+                                                    <td>Fila 8, Columna 2</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ventana flotante Horarios-->
 </body>
 </html>

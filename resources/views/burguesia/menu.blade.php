@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,9 @@
     <!-- Aquí puedes agregar tus estilos CSS -->
     <script src="{{ asset('js/carrito.js') }}"></script>
 </head>
+
 <body>
-    
+
     <!-- Incluye el encabezado de la página -->
     @include('burguesia.header')
     <br><br><br><br><br>
@@ -53,14 +55,14 @@
             @foreach ($lista as $categoria)
                 '{{ $categoria->nombre }}': [ // Entradas
                     @foreach ($platillos as $platillo)
-                        @if($categoria->nombre==$platillo->categoria)
-                        {
-                            id: '{{$platillo->id}}',
-                            titulo: '{{$platillo->nombre}}',
-                            descripcion: '{{$platillo->descripcion}}',
-                            imagen: '{{$platillo->imagen}}',
-                            precio: '{{$platillo->precio}}'
-                        },
+                        @if ($categoria->nombre == $platillo->categoria)
+                            {
+                                id: '{{ $platillo->id }}',
+                                titulo: '{{ $platillo->nombre }}',
+                                descripcion: '{{ $platillo->descripcion }}',
+                                imagen: '{{ $platillo->imagen }}',
+                                precio: '{{ $platillo->precio }}'
+                            },
                         @endif
                     @endforeach
                 ],
@@ -90,9 +92,11 @@
                 menuHTML += '<div class="card-body d-flex flex-column justify-content-between">';
                 menuHTML += '<h5 class="card-title text-center mb-4">' + titulo + '</h5>';
                 menuHTML += '<p class="card-text">' + desc + '</p>';
-                menuHTML += '<img src="storage/' + imgPath +'" class="card-img-top mx-auto" alt="..." style="max-width: 150px; height: auto; border: 4px solid white;">';
+                menuHTML += '<img src="storage/' + imgPath +
+                    '" class="card-img-top mx-auto" alt="..." style="max-width: 150px; height: auto; border: 4px solid white;">';
                 menuHTML += '<h6 class="card-text mt-2">Precio: $' + precio + '</h6>';
-                menuHTML += '<a href="#" class="btn btn-outline-success mx-auto" onclick="agregarACarrito(\'' + id + '\', \'' + titulo + '\', \'' + desc + '\', \'' + imgPath + '\',  \'' + precio + '\')">Agregar</a>';
+                menuHTML += '<a href="#" class="btn btn-outline-success mx-auto" onclick="agregarACarrito(\'' + id +
+                    '\', \'' + titulo + '\', \'' + desc + '\', \'' + imgPath + '\',  \'' + precio + '\')">Agregar</a>';
                 menuHTML += '</div></div></div>';
             }
             // Muestra los cards en el contenedor correspondiente
@@ -107,7 +111,7 @@
                 "desc": desc,
                 "img": img,
                 "precio": precio,
-                "cantidad": 1,
+                "cantidad": 1, // Inicia la cantidad en 1
             };
 
             let cart = sessionStorage.getItem('cart');
@@ -123,15 +127,22 @@
                 if (!productoExistente) {
                     // Si el producto no existe en el carrito, lo agregamos
                     productos.push(platillo);
+
+
                 } else {
                     // Si el producto ya está en el carrito, aumentamos su cantidad
-                    productoExistente.cantidad++;
+                    platillo.cantidad = productoExistente.cantidad + 1; // La cantidad toma el valor anterior + 1
+                    // Reemplazamos el producto existente por el nuevo
+                    productos = productos.map(function(producto) {
+                        return producto.id === id ? platillo : producto;
+                    });
                 }
 
                 var platillosJSON = JSON.stringify(productos);
                 sessionStorage.setItem('cart', platillosJSON); // Guarda el carrito actualizado en sessionStorage
 
                 // Actualiza el contador del carrito y muestra el valor
+
                 contadorCarrito = productos.reduce((total, producto) => total + producto.cantidad, 0);
                 localStorage.setItem('contadorCarrito', contadorCarrito);
                 document.getElementById('contadorCarrito').style.display = "block";
@@ -149,6 +160,7 @@
                 document.getElementById('contadorCarrito').innerText = contadorCarrito;
             }
         }
+
 
         // Función para filtrar los platillos por precio
         function filterByPrice(order) {
@@ -172,4 +184,5 @@
         }
     </script>
 </body>
+
 </html>

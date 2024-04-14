@@ -164,7 +164,7 @@
 
             tablaHTML += '</tbody></table>';
             // Mostrar el total del carrito fuera de la tabla
-            var totalCarritoHTML = '<p id="totalCarrito" style="background-color: red; color: white;">Total $' + totalCarrito + '</p>';
+            var totalCarritoHTML = '<p id="totalCarrito" style="background-color: red; color: white;">Total $' + totalCarrito.toFixed(2) + '</p>';
             
             // Agregar la tabla al div "carrito"
             //carrito.innerHTML = tablaHTML;
@@ -210,10 +210,10 @@ function ordenar(opcion) {
 
     // Aquí puedes agregar la lógica para enviar el pedido según la opción seleccionada (domicilio o restaurante)
     if (opcion === 'domicilio') {
-        enviarWhatsApp(productos);
+        enviarWhatsApp(productos, opcion);
         alert('Tu pedido ha sido enviado a domicilio');
     } else if (opcion === 'restaurante') {
-        enviarWhatsApp(productos);
+        enviarWhatsApp(productos, opcion);
         alert('Tu pedido ha sido enviado al restaurante');
     } else {
         console.log('Opción no válida');
@@ -308,23 +308,26 @@ actualizarTotalCarrito();
             productos.forEach(function (producto) {
                 totalCarrito += producto.precio * producto.cantidad;
             });
+            
 
             // Actualizar el elemento HTML que muestra el total del carrito
-            document.getElementById('totalCarrito').innerText = '$' + totalCarrito.toFixed(2);
+            document.getElementById('totalCarrito').innerText = 'Total $' + totalCarrito.toFixed(2);
         }
 
         // Función para enviar la lista del carrito por WhatsApp
-        function enviarWhatsApp(productos) {
-            var mensaje = "Mi pedido:\n";
+        function enviarWhatsApp(productos, opcion) {
+            var mensaje = "Mi pedido (" + opcion + "):\n";
             productos.forEach(function(producto) {
-                mensaje += producto.cantidad + " " + producto.titulo + " " + producto.precio +"\n";
+                mensaje += producto.cantidad + " " + producto.titulo + " $" + (producto.precio * producto.cantidad) +"\n";
             });
+            mensaje += "Total a pagar: $" + document.getElementById('totalCarrito').innerText.substr(7) + "\nNombre:";
+            
             // Modifica el número de WhatsApp al que deseas enviar el mensaje
             var numeroWhatsApp = "+529831920749";
-            // Construye el enlace para enviar el mensaje por WhatsApp
-            var enlaceWhatsApp = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
-            // Abre una nueva ventana con el enlace de WhatsApp
-            window.open(enlaceWhatsApp);
+// Construye el enlace para enviar el mensaje por WhatsApp
+var enlaceWhatsApp = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
+            // Abre la misma ventana con el enlace de WhatsApp
+            window.location.href = enlaceWhatsApp;
         }
     </script>
 
